@@ -1,12 +1,15 @@
-require("dotenv").config(); // Import dotenv để load biến môi trường
-
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors"); // Import thư viện cors
 
 const app = express();
 
 // Middleware để xử lý JSON
 app.use(express.json());
+
+// Thêm cors để cho phép yêu cầu từ các nguồn khác
+app.use(cors());
 
 // Lấy PORT và DB từ biến môi trường
 const PORT = process.env.PORT || 3000;
